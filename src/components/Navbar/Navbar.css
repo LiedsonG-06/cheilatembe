@@ -1,0 +1,260 @@
+/* ============================
+   Navbar.css (azul institucional)
+============================ */
+
+:root{
+  --ink: #ffffff;
+  --text: rgba(255, 255, 255, 0.85);
+  --muted: rgba(255, 255, 255, 0.65);
+
+  --glass: rgba(31, 63, 91, 0.95);
+  --glass-strong: rgba(31, 63, 91, 0.98);
+  --stroke: rgba(255, 255, 255, 0.12);
+
+  /* paleta azul (base CV) */
+  --pink: #1f3f5b;   /* azul principal */
+  --lilac: #274c6b;  /* azul ligeiramente mais claro */
+  --blue: #355f82;   /* azul médio para gradiente */
+
+  --shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  --shadow-strong: 0 18px 44px rgba(0, 0, 0, 0.35);
+
+  --radius: 16px;
+}
+
+/* Barra */
+.navbar{
+  width: 100%;
+  padding: 16px 46px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+
+  background: #1f3f5b;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Estado “transparente” no scroll */
+.navbar-transparent{
+  background: rgba(31,63,91,0.88);
+  box-shadow: none;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+/* Logo */
+.nav-logo{
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.nav-logo strong{
+  background: linear-gradient(90deg, var(--pink), var(--lilac), var(--blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Menu */
+.nav-menu{
+  display: flex;
+  list-style: none;
+  gap: 22px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Links normais */
+.anchor-link{
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 15px;
+  position: relative;
+  padding: 8px 10px;
+  border-radius: 10px;
+  transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.anchor-link:hover{
+  color: var(--ink);
+  background: rgba(255,255,255,0.12);
+  transform: translateY(-1px);
+}
+
+/* Sublinhado elegante */
+.anchor-link::after{
+  content: "";
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 4px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--pink), var(--lilac), var(--blue));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.22s ease;
+}
+
+.anchor-link:hover::after{
+  transform: scaleX(1);
+}
+
+/* “Botão” Fale comigo (link) */
+.nav-connect{
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+
+  color: #fff;
+  background: linear-gradient(135deg, var(--pink) 0%, var(--lilac) 60%, var(--blue) 100%);
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.30);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+}
+
+.nav-connect:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 18px 36px rgba(0,0,0,0.35);
+  filter: saturate(1.05);
+}
+
+/* Dropdown */
+.dropdown-container{
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Botão ⋮ */
+.dropdown-toggle{
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: white;
+
+  font-size: 22px;
+  cursor: pointer;
+
+  padding: 8px 12px;
+  border-radius: 12px;
+
+  box-shadow: 0 10px 22px rgba(0,0,0,0.20);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.dropdown-toggle:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,0.18);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.26);
+}
+
+/* Menu dropdown */
+.dropdown-menu{
+  position: absolute;
+  top: 52px;
+  right: 0;
+
+  min-width: 210px;
+  padding: 10px;
+  border-radius: var(--radius);
+
+  background: #1f3f5b;
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: var(--shadow-strong);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 2000;
+}
+
+/* Links do dropdown */
+.dropdown-link{
+  text-decoration: none;
+}
+
+/* Item clicável */
+.dropdown-item{
+  display: block;
+  padding: 10px 12px;
+  border-radius: 12px;
+
+  color: var(--text);
+  font-weight: 700;
+  font-size: 14px;
+
+  transition: background 0.2s ease, transform 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-item:hover{
+  background: rgba(255,255,255,0.12);
+  color: var(--ink);
+  transform: translateY(-1px);
+}
+
+/* “Fale comigo” dentro do dropdown */
+.dropdown-menu .nav-connect{
+  width: 100%;
+  margin-top: 6px;
+}
+
+/* Foco acessível */
+.anchor-link:focus-visible,
+.nav-connect:focus-visible,
+.dropdown-toggle:focus-visible,
+.dropdown-item:focus-visible{
+  outline: 3px solid rgba(255,255,255,0.40);
+  outline-offset: 3px;
+}
+
+/* Responsivo */
+@media (max-width: 768px){
+  .navbar{
+    padding: 14px 18px;
+  }
+
+  .nav-menu{
+    gap: 10px;
+  }
+
+  .anchor-link{
+    padding: 8px 8px;
+  }
+}
+
+/* Fallback se não suportar blur */
+@supports not (backdrop-filter: blur(10px)){
+  .navbar,
+  .navbar-transparent,
+  .dropdown-menu,
+  .dropdown-toggle{
+    background: rgba(31,63,91,0.98);
+  }
+}
