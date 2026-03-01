@@ -1,25 +1,25 @@
-/* Sobremim.css */
+/* Recomendo isto no teu index.css */
+* { margin: 0; padding: 0; box-sizing: border-box; } /* box-sizing ajuda a não “rebentar” larguras com padding */ 
+html, body { height: 100%; }
 
 .sobre{
-  padding:60px 20px;
-  max-width:1200px;
-  margin:0 auto;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color:#333;
-
-  background:#ffffff; /* fundo branco */
-
-  width:100%;
-  min-height:100vh;
+  width: 100%;
+  min-height: 100vh;  /* ocupa a altura do ecrã */
+  background: #ffffff;
+  padding: 60px 20px;
+  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Título */
-.sobre-title {
-  text-align: center;
-  margin-bottom: 40px;
+/* Conteúdo alinhado, mas o fundo ocupa o ecrã todo */
+.sobre-container{
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.sobre-title h1 {
+.sobre-title { text-align: center; margin-bottom: 40px; }
+
+.sobre-title h1{
   font-size: 2.6rem;
   color: #2c3e50;
   border-bottom: 3px solid #3498db;
@@ -28,50 +28,32 @@
   letter-spacing: 1px;
 }
 
-/* Layout */
-.sobre-sections {
+.sobre-sections{
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
   align-items: flex-start;
 }
 
-/* Imagem */
-.sobre-left {
+.sobre-left{
   flex: 1;
   min-width: 250px;
   max-width: 350px;
-  padding: 10px;
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 
-.sobre-img {
+.sobre-img{
   width: 100%;
   height: auto;
   border-radius: 12px;
   object-fit: cover;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-  transition: transform 0.4s ease;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
 }
 
-.sobre-img:hover {
-  transform: scale(1.03);
-}
+.sobre-right{ flex: 2; min-width: 300px; }
 
-/* Conteúdo direito */
-.sobre-right {
-  flex: 2;
-  min-width: 300px;
-}
-
-/* Texto */
-.sobre-para {
-  margin-bottom: 35px;
-}
-
-.sobre-para p {
+.sobre-para p{
   font-size: 1.05rem;
   line-height: 1.9;
   margin-bottom: 18px;
@@ -79,60 +61,20 @@
   text-align: justify;
 }
 
-.sobre-para strong {
-  color: #2980b9;
-}
+.sobre-subtitle{ margin: 18px 0 12px; }
 
-/* Skills */
-.sobre-skills {
-  margin-bottom: 18px;
-}
-
-.sobre-skills p {
-  margin: 0;
-  font-weight: 600;
-  color: #2c3e50;
-  font-size: 1.02rem;
-}
-
-.sobre-skills hr {
+.sobre-skills{ margin-bottom: 18px; }
+.sobre-skills p{ margin: 0; font-weight: 600; color: #2c3e50; }
+.sobre-skills hr{
   margin-top: 6px;
   border: none;
   height: 4px;
   width: 60px;
   background: linear-gradient(to right, #3498db, #6dd5fa);
   border-radius: 3px;
-  transition: width 0.3s ease;
 }
 
-.sobre-skills:hover hr {
-  width: 120px;
-}
-
-/* Responsivo */
-@media (max-width: 768px) {
-  .sobre-sections {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .sobre-left {
-    max-width: 280px;
-  }
-
-  .sobre-right {
-    text-align: center;
-  }
-
-  .sobre-para p {
-    text-align: justify;
-  }
-}
-.sobre-right {
-  text-align: justify;
-}
-
-.sobre-para p {
-  text-align: justify;
-  text-justify: inter-word;
+@media (max-width: 768px){
+  .sobre-sections{ flex-direction: column; align-items: center; }
+  .sobre-right{ width: 100%; }
 }

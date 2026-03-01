@@ -1,7 +1,7 @@
 import React from 'react';
 import './Sobremim.css';
 
-{/*import Perfil from '../../assets/Perfil.jpg';*/ }
+import Perfil from '../../assets/Perfil.jpg';
 
 const Sobremim = () => {
   return (
@@ -9,12 +9,12 @@ const Sobremim = () => {
       <div className="sobre-title">
         <h1>Sobre mim</h1>
       </div>
-      {/* Parte superior do rodapé 
+      
      <div className="sobre-sections">
         <div className="sobre-left">
           <img src={Perfil} alt="Foto de Perfil" className="sobre-img" />
         </div>
-        */}
+      
 
       <div className="sobre-right">
         <div className="sobre-para">
@@ -85,7 +85,7 @@ const Sobremim = () => {
 
       </div>
     </div>
-
+</div>
   );
 };
 
